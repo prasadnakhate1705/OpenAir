@@ -1,0 +1,196 @@
+/* ===== OpenAir UI Theme (clean + readable) ===== */
+
+:root{
+  --bg: #0b1220;          /* page background */
+  --panel: #111a2e;       /* cards/panels */
+  --panel2: #0f172a;      /* tables/secondary panels */
+  --border: rgba(255,255,255,0.10);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.70);
+  --link: #7dd3fc;
+  --accent: #22c55e;
+  --danger: #ef4444;
+  --focus: rgba(125, 211, 252, 0.35);
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 30% -10%, rgba(125,211,252,0.12), transparent 60%),
+              radial-gradient(900px 500px at 80% 0%, rgba(34,197,94,0.10), transparent 55%),
+              var(--bg);
+  color: var(--text);
+}
+
+/* Layout */
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+/* Top nav */
+.nav{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(17,26,46,0.65);
+  backdrop-filter: blur(8px);
+}
+.nav a{
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+}
+.nav a:hover{ text-decoration: underline; }
+h2, h3{ margin: 10px 0; }
+
+/* Cards / KPI */
+.kpiRow{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.card{
+  border: 1px solid var(--border);
+  background: rgba(17,26,46,0.70);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+.kpiTitle{
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.kpiValue{
+  font-size: 26px;
+  font-weight: 800;
+}
+
+/* Inputs */
+input, select, button{
+  font: inherit;
+}
+input, select{
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(15,23,42,0.85);
+  color: var(--text);
+  outline: none;
+}
+input::placeholder{ color: rgba(255,255,255,0.45); }
+input:focus, select:focus{
+  border-color: rgba(125,211,252,0.55);
+  box-shadow: 0 0 0 4px var(--focus);
+}
+
+.btn{
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(17,26,46,0.85);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 700;
+}
+.btn:hover{ filter: brightness(1.08); }
+.btnPrimary{
+  background: rgba(34,197,94,0.18);
+  border-color: rgba(34,197,94,0.40);
+}
+.btnDanger{
+  background: rgba(239,68,68,0.14);
+  border-color: rgba(239,68,68,0.40);
+}
+.btnLink{
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Filters row */
+.filters{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 12px 0;
+}
+.filters > *{
+  flex: 1 1 220px;
+}
+
+/* Table */
+.tableWrap{
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: auto;
+  background: rgba(15,23,42,0.65);
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+thead th{
+  position: sticky;
+  top: 0;
+  background: rgba(17,26,46,0.95);
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+tbody td{
+  padding: 10px 12px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  color: var(--text);
+}
+tbody tr:hover{
+  background: rgba(125,211,252,0.07);
+}
+.actions{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Forms */
+.form{
+  max-width: 560px;
+  display: grid;
+  gap: 10px;
+}
+label{
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+label span{
+  color: var(--muted);
+}
+
+/* Links */
+a{ color: var(--link); }
+
+.btnAsLink{
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
