@@ -3,6 +3,7 @@ import { api } from "../api";
 import { useNavigate, useParams } from "react-router-dom";
 
 function toInputValue(dt) {
+  // Convert an ISO date to yyyy-MM-ddTHH:mm for <input type="datetime-local">
   const d = new Date(dt);
   const pad = (n) => String(n).padStart(2, "0");
   const yyyy = d.getFullYear();
@@ -90,7 +91,7 @@ export default function FlightForm({ mode }) {
       <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "baseline" }}>
         <div>
           <h2 className="pageTitle">{mode === "create" ? "Add Flight" : "Edit Flight"}</h2>
-          <p className="pageSub">Create or update a flight record. Fields are validated before saving.</p>
+          <p className="pageSub">Create or update a flight record.</p>
         </div>
 
         <button type="button" className="btn" onClick={() => nav("/flights")}>
@@ -103,7 +104,6 @@ export default function FlightForm({ mode }) {
           <div style={{ color: "rgba(255,255,255,0.7)" }}>Loading form…</div>
         ) : (
           <form onSubmit={onSubmit} className="formGrid">
-            {/* Row 1 */}
             <label>
               Callsign
               <input value={form.callsign} onChange={(e) => set("callsign", e.target.value)} placeholder="e.g. AAL123" />
@@ -114,7 +114,6 @@ export default function FlightForm({ mode }) {
               <input value={form.icao24} onChange={(e) => set("icao24", e.target.value)} placeholder="e.g. a1b2c3" />
             </label>
 
-            {/* Row 2 */}
             <label>
               Departure Airport (ICAO)
               <select value={form.estdepartureairport} onChange={(e) => set("estdepartureairport", e.target.value)}>
@@ -139,28 +138,16 @@ export default function FlightForm({ mode }) {
               </select>
             </label>
 
-            {/* Row 3 */}
             <label>
               Departure Time
-              <input
-                type="datetime-local"
-                value={form.departure_time}
-                onChange={(e) => set("departure_time", e.target.value)}
-                required
-              />
+              <input type="datetime-local" value={form.departure_time} onChange={(e) => set("departure_time", e.target.value)} required />
             </label>
 
             <label>
               Arrival Time
-              <input
-                type="datetime-local"
-                value={form.arrival_time}
-                onChange={(e) => set("arrival_time", e.target.value)}
-                required
-              />
+              <input type="datetime-local" value={form.arrival_time} onChange={(e) => set("arrival_time", e.target.value)} required />
             </label>
 
-            {/* Row 4 */}
             <label>
               Duration (min) (optional)
               <input value={form.duration_min} onChange={(e) => set("duration_min", e.target.value)} placeholder="e.g. 95" />
@@ -168,14 +155,9 @@ export default function FlightForm({ mode }) {
 
             <label>
               Ingest Date
-              <input
-                type="date"
-                value={form.ingest_date}
-                onChange={(e) => set("ingest_date", e.target.value)}
-              />
+              <input type="date" value={form.ingest_date} onChange={(e) => set("ingest_date", e.target.value)} />
             </label>
 
-            {/* Row 5 */}
             <label>
               Typecode
               <input value={form.typecode} onChange={(e) => set("typecode", e.target.value)} placeholder="e.g. A320" />
@@ -186,13 +168,11 @@ export default function FlightForm({ mode }) {
               <input value={form.model} onChange={(e) => set("model", e.target.value)} placeholder="e.g. Airbus A320-214" />
             </label>
 
-            {/* Row 6 */}
             <label className="span2">
               Registration
               <input value={form.registration} onChange={(e) => set("registration", e.target.value)} placeholder="e.g. N123AA" />
             </label>
 
-            {/* Actions */}
             <div className="span2" style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 6 }}>
               <button type="button" className="btn" onClick={() => nav("/flights")}>
                 Cancel
