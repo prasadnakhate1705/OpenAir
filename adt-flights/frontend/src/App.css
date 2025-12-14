@@ -339,3 +339,25 @@ tbody tr:hover{
   .formActions{ justify-content: stretch; }
   .formActions .btn{ width: 100%; }
 }
+
+select {
+  color: var(--text);
+  background-color: rgba(255,255,255,0.045);
+}
+
+/* The opened dropdown list (Windows / Chrome / Edge) */
+select option {
+  color: #111 !important;          /* dark text */
+  background-color: #fff !important; /* white background */
+  font-weight: 500;
+}
+
+/* Hovered option */
+select option:hover {
+  background-color: #e5e7eb !important;
+}
+
+/* Selected option */
+select option:checked {
+  background-color: #dbeafe !important;
+}
