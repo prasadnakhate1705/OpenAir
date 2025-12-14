@@ -304,3 +304,38 @@ tbody tr:hover{
   .kpiRow{ grid-template-columns: 1fr; }
   .nav{ width: 100%; justify-content: center; }
 }
+
+/* Centered page wrapper for forms/pages */
+.pageWrap{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.pageHead{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* Form grid */
+.formGrid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.formActions{
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+@media (max-width: 900px){
+  .formGrid{ grid-template-columns: 1fr; }
+  .formActions{ justify-content: stretch; }
+  .formActions .btn{ width: 100%; }
+}
