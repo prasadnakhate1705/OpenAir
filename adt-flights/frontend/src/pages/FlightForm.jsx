@@ -11,7 +11,7 @@ function toInputValue(dt) {
   const dd = pad(d.getDate());
   const hh = pad(d.getHours());
   const mi = pad(d.getMinutes());
-  return ${yyyy}-${mm}-${dd}T${hh}:${mi};
+  return '${yyyy}-${mm}-${dd}T${hh}:${mi}';
 }
 
 export default function FlightForm({ mode }) {
@@ -40,7 +40,7 @@ export default function FlightForm({ mode }) {
       setAirports(a.data);
 
       if (mode === "edit") {
-        const res = await api.get(/flights/${id});
+        const res = await api.get('/flights/${id}');
         const f = res.data;
         setForm({
           callsign: f.callsign || "",
@@ -76,7 +76,7 @@ export default function FlightForm({ mode }) {
     };
 
     if (mode === "create") await api.post("/flights", payload);
-    else await api.put(/flights/${id}, payload);
+    else await api.put('/flights/${id}', payload);
 
     nav("/flights");
   }
