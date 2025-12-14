@@ -11,7 +11,7 @@ function toInputValue(dt) {
   const dd = pad(d.getDate());
   const hh = pad(d.getHours());
   const mi = pad(d.getMinutes());
-  return ${yyyy}-${mm}-${dd}T${hh}:${mi};
+  return '${yyyy}-${mm}-${dd}T${hh}:${mi}';
 }
 
 export default function FlightForm({ mode }) {
