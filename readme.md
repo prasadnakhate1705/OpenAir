@@ -31,39 +31,6 @@ OpenAir is a full-stack web application that provides:
 
 ## 📁 Project Structure
 
-# ✈️ OpenAir – ADT Final Project
-
-**Full-Stack Flight Analytics & CRUD Application**
-
-OpenAir is a full-stack web application that provides:
-
-- Flight data visualization and statistics
-- Full CRUD operations on flights
-- Airport-level analytics
-- Clean React UI with a Python FastAPI backend
-- MongoDB as the primary data store
-
----
-
-## 🧱 Tech Stack
-
-**Frontend**
-
-- React (Vite)
-- Axios
-- Recharts (Charts)
-- Custom CSS (Dark Aviation Theme)
-
-**Backend**
-
-- Python FastAPI
-- Motor (Async MongoDB driver)
-- MongoDB (Local or Atlas)
-
----
-
-## 📁 Project Structure
-
 OpenAir/
 │
 ├── backend/
