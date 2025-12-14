@@ -88,11 +88,17 @@ async def update_flight(flight_id: str, payload: FlightIn):
 
 @app.delete("/api/flights/{flight_id}")
 async def delete_flight(flight_id: str):
-    if not ObjectId.is_valid(flight_id):
-        raise HTTPException(status_code=400, detail="Invalid id")
-    res = await flights_col.delete_one({"_id": ObjectId(flight_id)})
+    # Try ObjectId delete first (common case)
+    if ObjectId.is_valid(flight_id):
+        res = await flights_col.delete_one({"_id": ObjectId(flight_id)})
+        if res.deleted_count == 1:
+            return {"deleted": True}
+
+    # Fallback: delete if _id is stored as a plain string
+    res = await flights_col.delete_one({"_id": flight_id})
     if res.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Flight not found")
+
     return {"deleted": True}
 
 # -------- Aircrafts (derived from flights since aircrafts collection is empty) --------
